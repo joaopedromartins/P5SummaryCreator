@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<?xml-stylesheet type="text/xsl" href="text.xsl" ?>
+<?xml-stylesheet type="text/xsl" href="src/main/resources/xsl/text.xsl" ?>
 <feedNoticias data="2015-06-14T19:43:00.236+01:00" quantidade="171">
     <noticiasRegiao quantidade="30" regiao="EUROPE">
         <noticia>

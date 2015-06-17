@@ -3,7 +3,7 @@
   <xs:element name="feedNoticias">
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="noticiasRegiao"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="noticiasRegiao"/>
       </xs:sequence>
       <xs:attribute name="data" use="required" type="xs:dateTime"/>
       <xs:attribute name="quantidade" use="required" type="xs:integer"/>

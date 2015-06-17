@@ -81,7 +81,7 @@
 					<!-- will main class to MANIFEST.MF -->
 					<archive>
 						<manifest>
-							<mainClass>SummaryCreatorMain</mainClass>
+							<mainClass>pt.uc.dei.aor.paj.jms.SummaryCreator</mainClass>
 						</manifest>
 					</archive>
 					<!-- will assembly the exploded dependencies within our uber jar -->

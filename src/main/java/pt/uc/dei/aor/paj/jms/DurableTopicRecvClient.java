@@ -1,4 +1,4 @@
-package jms;
+package pt.uc.dei.aor.paj.jms;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -15,12 +15,7 @@ import javax.jms.TextMessage;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-/**
- *  A JMS client example program that synchronously receives a message a Topic
- *     
- *  @author Scott.Stark@jboss.org
- *  @version $Revision: 1.9 $
- */
+
 public class DurableTopicRecvClient implements MessageListener
 {
     TopicConnection conn = null;
@@ -53,18 +48,12 @@ public class DurableTopicRecvClient implements MessageListener
     public void recvAsync()
         throws JMSException, NamingException
     {
-//        System.out.println("Begin recvAsync");
+
         // Setup the pub/sub connection, session
         setupPubSub();
-//        // Wait upto 5 seconds for the message
+
         TopicSubscriber recv = session.createDurableSubscriber(topic, "jms-summary");
         recv.setMessageListener(this);
-//        Message msg = recv.receive(5000);
-//        if (msg == null) {
-//            System.out.println("Timed out waiting for msg");
-//        } else {
-//            System.out.println("DurableTopicRecvClient.recv, msgt=" + msg);
-//        } 
     }
     
     public  void stop() 
@@ -85,21 +74,8 @@ public class DurableTopicRecvClient implements MessageListener
         System.out.println("Cliente de leitura terminado!");
     	
     	
-//    	System.exit(0);
+
     }
-    
-//    public static void main(String args[]) 
-//        throws Exception
-//    {
-//        System.out.println("Begin DurableTopicRecvClient, now=" + 
-//                           System.currentTimeMillis());
-//        DurableTopicRecvClient client = new DurableTopicRecvClient();
-//        client.recvAsync();
-//        System.out.println("Press enter to finish...");
-//        System.in.read();
-//        client.stop();
-//        System.out.println("End DurableTopicRecvClient");
-//        System.exit(0);
-//    }
+
     
 }

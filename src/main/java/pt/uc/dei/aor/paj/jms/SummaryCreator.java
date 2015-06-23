@@ -3,6 +3,8 @@ package pt.uc.dei.aor.paj.jms;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 
@@ -51,21 +53,20 @@ public class SummaryCreator {
 			System.out.println("Erro ao criar o XML");
 		}
 		
-		ClassLoader classLoader = getClass().getClassLoader();
-		File XslFile = new File(classLoader.getResource("text.xsl").getFile());
-		
-		copyFile(XslFile, "text.xsl");
+		InputStream xslfile = SummaryCreator.class.getResourceAsStream("text.xsl");		
+		copyFile(xslfile, "text.xsl");
 		
 	}
 	
-	private static void copyFile(File source, String finalFileName) {
-		 File dest = new File(finalFileName); 
+	private static void copyFile(InputStream source, String finalFileName) {
+		 File dest = new File(finalFileName);
+		 
 		try {
 	    	if (dest.exists()) {
 				dest.delete();
 			}
-	    		    	
-			Files.copy(source.toPath(), dest.toPath());
+	    	
+			Files.copy(source, dest.toPath());
 		} catch (IOException e) {
 			System.out.println("Falha ao copiar o ficheiro");
 		}
